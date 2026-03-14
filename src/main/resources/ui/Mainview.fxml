@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1"
+            xmlns="http://javafx.com/javafx/17"
+            fx:controller="ui.MainviewController"
+            prefHeight="600.0" prefWidth="800.0">
+
+
+    <top>
+        <VBox alignment="CENTER" spacing="10">
+            <padding>
+                <Insets top="20" bottom="20"/>
+            </padding>
+            <Label text="Banking System"
+                   style="-fx-font-size: 28px; -fx-font-weight: bold;"/>
+            <Separator/>
+        </VBox>
+    </top>
+
+
+    <center>
+        <VBox spacing="15" alignment="TOP_CENTER">
+            <padding>
+                <Insets top="20" left="50" right="50" bottom="20"/>
+            </padding>
+
+            <Label text="Accounts:"
+                   style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+
+            <ListView fx:id="accountListView"
+                      prefHeight="400"
+                      prefWidth="700">
+                <contextMenu>
+                    <ContextMenu>
+                        <items>
+                            <MenuItem text="Auswählen"
+                                      onAction="#handleSelect"/>
+                            <SeparatorMenuItem/>
+                            <MenuItem text="Löschen"
+                                      onAction="#handleDelete"/>
+                        </items>
+                    </ContextMenu>
+                </contextMenu>
+            </ListView>
+
+
+            <Button fx:id="createAccountButton"
+                    text="Neuer Account"
+                    onAction="#handleCreate"
+                    style="-fx-font-size: 14px; -fx-padding: 10;"/>
+        </VBox>
+    </center>
+
+</BorderPane>

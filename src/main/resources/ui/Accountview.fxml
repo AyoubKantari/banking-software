@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            xmlns="http://javafx.com/javafx"
+            fx:controller="ui.AccountviewController"
+            prefHeight="700.0" prefWidth="900.0">
+
+    <top>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="20" left="20" right="20" bottom="10"/>
+            </padding>
+
+            <Button fx:id="backButton"
+                    text="← Zurück zur Hauptansicht"
+                    onAction="#handleBack"
+                    style="-fx-font-size: 12px;"/>
+
+            <Separator/>
+
+            <VBox spacing="5" alignment="CENTER">
+                <Label fx:id="accountNameLabel"
+                       text="Account: "
+                       style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+                <Label fx:id="balanceLabel"
+                       text="Kontostand: 0.00 EUR"
+                       style="-fx-font-size: 18px; -fx-text-fill: green;"/>
+            </VBox>
+
+            <Separator/>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="15">
+            <padding>
+                <Insets top="10" left="30" right="30" bottom="20"/>
+            </padding>
+
+            <VBox spacing="10">
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Sortierung:"
+                           style="-fx-font-weight: bold;"/>
+                    <Button text="Aufsteigend"
+                            onAction="#handleSortAscending"/>
+                    <Button text="Absteigend"
+                            onAction="#handleSortDescending"/>
+                </HBox>
+
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Filter:"
+                           style="-fx-font-weight: bold;"/>
+                    <Button text="Alle"
+                            onAction="#handleShowAll"/>
+                    <Button text="Nur Positive"
+                            onAction="#handleShowPositive"/>
+                    <Button text="Nur Negative"
+                            onAction="#handleShowNegative"/>
+                </HBox>
+            </VBox>
+
+            <Separator/>
+
+
+            <VBox spacing="10">
+                <Label text="Transaktionen:"
+                       style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+                <ListView fx:id="transactionListView"
+                          prefHeight="400">
+                    <contextMenu>
+                        <ContextMenu>
+                            <items>
+                                <MenuItem text="Löschen"
+                                          onAction="#handleDeleteTransaction"/>
+                            </items>
+                        </ContextMenu>
+                    </contextMenu>
+                </ListView>
+            </VBox>
+
+
+            <Button text="Neue Transaktion hinzufügen"
+                    onAction="#handleAddTransaction"
+                    style="-fx-font-size: 14px; -fx-padding: 10;"/>
+        </VBox>
+    </center>
+
+</BorderPane>
