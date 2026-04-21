@@ -1,4 +1,4 @@
-# Bank Application (P5)
+# Bank Application 
 
 A JavaFX banking application developed for the Object-Oriented Software course at FH Aachen.
 
